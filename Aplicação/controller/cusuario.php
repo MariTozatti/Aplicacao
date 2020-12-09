@@ -1,6 +1,6 @@
 <?php
 
-if (isset ($_POST['gravar'])){
+if (isset($_POST['alterar'])||isset($_POST['gravar'])){
     include_once('../config/conexao.php');
     include_once('../config/util.php');
 }
@@ -9,10 +9,10 @@ else{
     include_once('config/util.php');
 }
 if (isset($_POST['nome'])) {
-    $cod_pes = $_POST['id_usuario'];
-    $nome_pes = $_POST['nome'];
-    $usuario_pes = $_POST['usuario'];
-    $senha_pes = $_POST['senha'];
+    $nome = $_POST['nome'];
+    $id_usuario = $_POST['id_usuario']; 
+    $usuario = $_POST['usuario'];
+    $senha = $_POST['senha'];
 }
 
 if (isset($_POST['gravar'])) {
@@ -24,18 +24,23 @@ if (isset($_POST['gravar'])) {
     $stmt->bindParam(3, $senha);
     $stmt->execute();
 
-        modalMessage("Cadastro de usuario","Dados cadastrados com sucesso!","../index.php","../usuarios.php");           
+        modalMessage("Cadastro de usuario","Dados cadastrados com sucesso!","../index.php","../usuario.php");           
 } else
-if (isset($_POST['excluir'])) {
+    if (isset($_POST['excluir']) || isset($_POST['localizar'])) {
+    header('location: ../tabUsuario.php');
+} else
+if (isset($_POST['alterar'])) {
     
     $conn = conexao();
-    $stmt = $conn->prepare("DELTE INTO Cadastro_usuario (nome, usuario, senha) values (?,?,?);");
+
+    $stmt = $conn->prepare("UPDATE Cadastro_usuario set nome = ?, usuario = ?, senha = ? WHERE id_usuario = ?;");
     $stmt->bindParam(1, $nome);
     $stmt->bindparam(2, $usuario);
     $stmt->bindParam(3, $senha);
+    $stmt->bindParam(4, $id_usuario);
     $stmt->execute();
 
-        modalMessage("Cadastro de usuario","Dados deletados com sucesso!","../index.php","../usuarios.php");  
+        modalMessage("Cadastro de Usuarios","Dados alterados com sucesso!","../index.php","../usuario.php");     
 } else
 
 if(isset($_POST['login'])){

@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="apple-mobile-web-app-title" content="CodePen">
-        <link href="css/style1.css" rel="stylesheet" type="text/css"/>
+        <link href="css/style.css" rel="stylesheet" type="text/css"/>
         
         <link href="bootstrap-3.4.1-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="css/jquery-ui.theme.min.css" rel="stylesheet" type="text/css"/>
@@ -84,12 +84,12 @@
                         </ul>             
                     </div>
                     <div class="col">
-                        <a href="#"><h4>Login</h4> </a>
+                        <a href="login.php"><h4>Login</h4> </a>
                         <a href="#"><h4>Logout</h4> </a>           
                     </div>
                     <div class="col">
                         <ul class="social">
-                            <li><a href=""><svg title="Facebook"><use xlink:href="#icon-facebook"></use></svg></a></li>
+                            <li><a href="https://www.facebook.com/mariana.dealmeida.549" target="_blank"><svg title="Facebook"><use xlink:href="#icon-facebook"></use></svg></a></li>
                             <li><a href=""><svg title="Twitter"><use xlink:href="#icon-twitter"></use></svg></a></li>
                             <li><a href=""><svg title="LinkedIn"><use xlink:href="#icon-linkedin"></use></svg></a></li>
                         </ul>

@@ -1,6 +1,6 @@
 <?php
 include_once 'config/header.php';
-include_once('controller/ctopicos.php');
+include_once('controller/ctopico.php');
 ?>
 <style>
     
