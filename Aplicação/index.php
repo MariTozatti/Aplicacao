@@ -8,19 +8,20 @@ include_once 'config/header.php';
         font-family: 'Roboto Condensed';
     }
     .caixa{
-    color: black;
-    padding-left: 150px;
-    padding-right: 100px;
-    padding-top: 25px;
-    padding-bottom: 5%;
-    font: couier, monospace;
-    text-align: justify;   
-    font-size: 21px;
-    text-indent: 50px; 
+    
+    padding-left: 10%;
+    padding-right: 8%;
+    padding-top: 3%;
+    padding-bottom: 4%;
+    margin-top: 5%;
     border-right: #fff solid 1px;
     border-top: #fff solid 1px;
     border-bottom: #fff solid 1px;
-    margin-top: 5%;
+    font: couier, monospace;  
+    font-size: 21px;
+    text-align: justify; 
+    text-indent: 50px; 
+    color: black;   
     background-color:rgba(255,255,255,.2);
 }
 .caixa2{
