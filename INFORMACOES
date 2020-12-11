@@ -1,5 +1,4 @@
-Bira, quando vc abrir as telas, parte "branca" vai ta do mesmo tamanho do menu, ela deformou quando eu coloquei o php junto com o html;
-A pag tabUsuario e tabTopico estão estranhas, o modelo do wesley não ta muito legal;
+Bira, a pag tabUsuario e tabTopico estão estranhas, o modelo do wesley não ta muito legal;
 Eu adcionei a função alterar porquê percebi que o resto não funcionava sem isso, por algum motivo;
 Acho que o erro está no arquivo de conexão;
 Ta dando erro no id_usuario e no id_topico, na tabela, eles se alto preenchem, mas na programação não;
