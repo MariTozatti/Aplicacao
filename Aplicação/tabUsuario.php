@@ -1,26 +1,27 @@
 <?php
-include_once('config/header.php');
+include_once 'config/header.php';
 include_once('controller/cusuario.php');
 ?>
-<style>
+<style>   
     @import url(https://fonts.googleapis.com/css?family=Roboto+Condensed);
     body{
         font-family: 'Roboto Condensed';
     }
-    .caixa{
-    color: black;
-    padding-left: 150px;
-    padding-right: 100px;
-    padding-top: 25px;
-    padding-bottom: 5%;
-    font: couier, monospace;
-    text-align: justify;   
-    font-size: 21px;
-    text-indent: 50px; 
+.caixa{
+    padding-left: 10%;
+    padding-right: 8%;
+    padding-top: 3%;
+    padding-bottom: auto;
+    padding-bottom: 4%;
+    margin-top: 5%;
     border-right: #fff solid 1px;
     border-top: #fff solid 1px;
     border-bottom: #fff solid 1px;
-    margin-top: 5%;
+    font: couier, monospace;  
+    font-size: 21px;
+    text-align: justify; 
+    text-indent: 50px; 
+    color: black;   
     background-color:rgba(255,255,255,.2);
 }
 .caixa2{
@@ -30,90 +31,90 @@ include_once('controller/cusuario.php');
     padding-top: 1%;
     font-size:14px;
     color: #fff;
+    margin-bottom: 3%;
 }
-.txt{
-    line-height: 1.5;
+.formularios{
+    margin-top:2%;
+}
+.botoes{
+    margin-top:3.6%;
 }
 </style>
-<head>
-    <link href="css/style.css" rel="stylesheet" type="text/css"/>
-</head>
-<!--///////////// TROCAR A TABELA POR UMA MAIS BONITA, ESSA TA ESTRANHA /////////// -->
-<div class="conteiner" style="margin-bottom: 25px;">
-    <form action="tabUsuario.php" method="POST">
-        <div class="row caixa caixa2">
-            <div class="col-md-3">
-                <label>Localizar por descrição:</label>
+<form action="controller/cusuario.php" method="POST">
+    <div class="container">
+        <div class="caixa caixa2">
+            <h1 style="color: #fff">Usuários</h1>
+            <div class="row formularios">
+                <div class="form-group col-md-10">
+                    <label> Pesquisa: </label>
+                    <input type="text" name="pesquisa_top" class="form-control"
+                           placeholder="Pesquisa por data, posição ou nome" />
+                </div>
+                <div class="form-group col-md-2 botoes" >
+                    <input type="submit" name="localizar" value="Localizar" class="btn btn-primary">
+                </div>
             </div>
-            <div class="col-md-7">
-                <input type="text" name="pesquisa" class="form-control">
-            </div>
-            <div class="col-me-2" style="margin-bottom: 8px;">
-                <input type="submit" value="Localizar" class="btn btn-primary">
-            </div>
-        </div>
-    </form>
-</div>
-<div class="texto">
-    <table class="table table-striped table-hover">
-        <tr class="row">
-            <th class="col-md-2">
-                <span><b>Cód.</b></span>			
-            </th>	
-            <th class="col-md-4">
-                <span><b>Nome</b></span>			
-            </th>
-            <th class="col-md-2">
-                <span><b>Usuario</b></span>			
-            </th>
-            <th class="col-md-2">
-                <span><b>Senha</b></span>			
-            </th>
-            <th class="col-md-2">
-                &nbsp;
-            </th>
-        </tr>
-
-        <?php
+            </form>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Usuário</th>
+                        <th scope="col">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+<!--                    <tr>
+                        <td>1</td>
+                        <td>Mariana</td>
+                        <td>Mari</td>
+                        <td></td>
+                    </tr>-->
+                    <?php
         if (isset($_POST['pesquisa'])) {
             include_once('controller/cusuario.php');
             $retorno = localizarUsuario($_POST['pesquisa']);
 
             for ($i = 0; $i < count($retorno); $i++) {
-                echo "<tr class='row'>";
-                echo "	<td class='col-md-2'>";
-                echo "		<span>" . $retorno[$i]['id_usuario'] . "</span>";
+                echo "<tr>";
+                echo "	<td>";
+                echo "	<span>" . $retorno[$i]['id_usuario'] . "</span>";
                 echo "	</td>";
-                echo "<td class='col-md-4'>";
-                echo "		<span>" . $retorno[$i]['nome'] . "</span>";
+                echo "<td>";
+                echo "	<span>" . $retorno[$i]['nome'] . "</span>";
                 echo "</td>";
-                echo "<td class='col-md-2'>";
-                echo "		<span>" . $retorno[$i]['usuario'] . "</span>";
+                echo "<td>";
+                echo "	<span>" . $retorno[$i]['usuario'] . "</span>";
                 echo "</td>";
-                echo "<td class='col-md-2'>";
-                echo "	<span>" . $retorno[$i]['senha'] . "</span>";
-                echo "</td>";
-                echo "<td class='col-md-2'>";
-                echo "	<a href='?acao=del&id=" . $retorno[$i]['id_usuario'] . "' class='btn btn-danger' style='margin-right: 10px;'>Excluir </a><a href='?acao=alt&id=" . $retorno[$i]['id_usuario'] . "' class='btn btn-primary' > Alterar</a>";
+                echo "<td>";
+                echo "	<a href='?acao=del&id=" . $retorno[$i]['id_usuario'] . "' class='btn btn-danger'>Excluir </a><a href='?acao=alt&id=" . $retorno[$i]['id_usuario'] . "' class='btn btn-primary' > Alterar</a>";
                 echo "</tr>";
             }
         }
         ?>
-
-    </table>
-    <form>
+                </tbody>
+            </table>
+            <form>
         <a href='usuario.php' class='btn btn-primary' style="margin: 10px;">Voltar ao cadastro</a>
     </form>
+        </div>
+    </div>
+    <div class="rodape">
+        <center><p>IFSP - VOTUPORANGA @2020</p></center>
+    </div>
+
 </div>
 <?php
-
 if (isset($_REQUEST['acao'])) {
     if ($_REQUEST['acao'] == "del") {
         excluirUsuarios($_REQUEST['id']);
-        echo "<script language='javascript'> alert('Usuário excluído com sucesso!') </script>";
-        echo " <script>document.location.href='tabUsuarios.php'</script>";
+        echo "<script language='javascript'> alert('Usuario excluído com sucesso!') </script>";
+        echo " <script>document.location.href='tabUsuario.php'</script>";
     } else if ($_REQUEST['acao'] == "alt") {
-        echo "<script>document.location.href='usuarios.php?id=" . $_REQUEST['id'] . "'</script>";
+        echo "<script>document.location.href='usuario.php?id=" . $_REQUEST['id'] . "'</script>";
     }
 }
 ?>
+</body>
+</html>

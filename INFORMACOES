@@ -1,4 +1,4 @@
-Bira, a pag tabUsuario e tabTopico estão estranhas, o modelo do wesley não ta muito legal;
-Eu adcionei a função alterar porquê percebi que o resto não funcionava sem isso, por algum motivo;
-Acho que o erro está no arquivo de conexão;
-Ta dando erro no id_usuario e no id_topico, na tabela, eles se alto preenchem, mas na programação não;
+Bira, 
+O login não está funcionando, por isso comentei o código;
+Todas as pag de localizar(tabUsuario, tabTopico e Vulnerabilidades) não estão funcionando;
+

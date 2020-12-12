@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-	<title>Login V1</title>
+	<title>Aplicação</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
@@ -22,7 +22,7 @@
 <!--===============================================================================================-->
 </head>
 <body>
-	
+    <form action="controller/cusuario.php" method="POST">
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
@@ -52,7 +52,7 @@
 					</div>
 					
 					<div class="container-login100-form-btn">
-						<button type="submit" name="login" value="Login"class="login100-form-btn">
+						<button type="submit" name="login" value="Login" class="login100-form-btn">
 							Login
 						</button>
                                         </div>
@@ -60,7 +60,7 @@
 			</div>
 		</div>
 	</div>
-	
+    </form>
 	
 
 	

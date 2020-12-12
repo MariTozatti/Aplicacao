@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Tempo de geração: 09-Dez-2020 às 19:09
+-- Tempo de geração: 11-Dez-2020 às 22:10
 -- Versão do servidor: 8.0.22-0ubuntu0.20.04.3
 -- versão do PHP: 7.4.3
 
@@ -40,7 +40,11 @@ CREATE TABLE `Cadastro_topico` (
 --
 
 INSERT INTO `Cadastro_topico` (`id_topico`, `ano`, `posicao`, `vulnerabilidade`) VALUES
-(1, 2020, 1, 'teste');
+(1, 2020, 1, 'teste'),
+(2, 2021, 1, 'teste'),
+(3, 2019, 2, 'teste'),
+(4, 2019, 2, 'teste'),
+(5, 2018, 4, 'teste');
 
 -- --------------------------------------------------------
 
@@ -62,7 +66,10 @@ CREATE TABLE `Cadastro_usuario` (
 --
 
 INSERT INTO `Cadastro_usuario` (`id_usuario`, `nome`, `usuario`, `senha`, `id_usuario_fk`, `id_topico_fk`) VALUES
-(1, 'mari', 'mari', 'mari', NULL, NULL);
+(1, 'mari', 'mari', 'mari', NULL, NULL),
+(2, 'mariana', 'qq', 'q', NULL, NULL),
+(3, 'Patricia Tozatti', 'patricia', 'pati123', NULL, NULL),
+(4, 'q', 'qq', 'q', NULL, NULL);
 
 --
 -- Índices para tabelas despejadas
@@ -90,13 +97,13 @@ ALTER TABLE `Cadastro_usuario`
 -- AUTO_INCREMENT de tabela `Cadastro_topico`
 --
 ALTER TABLE `Cadastro_topico`
-  MODIFY `id_topico` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_topico` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `Cadastro_usuario`
 --
 ALTER TABLE `Cadastro_usuario`
-  MODIFY `id_usuario` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_usuario` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Restrições para despejos de tabelas

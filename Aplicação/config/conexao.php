@@ -1,18 +1,30 @@
 <?php
 
-$servername = "localhost";
-$database = "Aplicacao";
-$username = "mari";
-$password = "mari123";
+const DBDRIVER = "mysql";
+const HOSTNAME = "localhost";
+const USERNAME = "mari";
+const PASSWORD = "mari123";
+const DBNAME = "Aplicacao";
 
-// Create connection
-$conn = mysqli_connect($servername, $username, $password, $database);
+try {
 
-// Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
+    function conexao() {
+        $conn = new PDO(
+                DBDRIVER . ":host=" . HOSTNAME . ";port=5432;dbname=" . DBNAME . ";user=" . USERNAME . ";password=" . PASSWORD
+        );
+
+        // Tratamento necessário para que apareçam erros de comando SQL
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $conn->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+
+        //retorna o canal de conexão com sucesso
+        return $conn;
+    }
+
+} catch (PDOexception $erro) {
+    echo "Ocorreu um erro " . $erro->getMessage();
 }
-echo "Connected successfully";
-mysqli_close($conn);
 ?>
+
+
 

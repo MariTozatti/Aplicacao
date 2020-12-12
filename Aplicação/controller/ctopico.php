@@ -1,18 +1,18 @@
 <?php
 
-if (isset($_POST['alterar'])||isset($_POST['gravar'])){
+if (isset($_POST['alterar']) || isset($_POST['gravar'])) {
     include_once('../config/conexao.php');
     include_once('../config/util.php');
-}
-else{
+} 
+else {
     include_once('config/conexao.php');
     include_once('config/util.php');
 }
 if (isset($_POST['vulnerabilidade'])) {
-    $id_topico = $_POST['id_topico'];
     $vulnerabilidade = $_POST['vulnerabilidade'];
     $ano = $_POST['ano'];
     $posicao = $_POST['posicao'];
+    $id_topico = $_POST['id_topico'];
 }
 
 if (isset($_POST['gravar'])) {
@@ -24,21 +24,24 @@ if (isset($_POST['gravar'])) {
     $stmt->bindParam(3, $posicao);
     $stmt->execute();
 
-        modalMessage("Cadastro de usuario","Dados alterados com sucesso!","../index.php","../usuarios.php");           
+    modalMessage("Cadastro de Tópicos", "Dados cadastrados com sucesso!", "../index.php", "../topico.php");
 } else
-    if (isset($_POST['excluir']) || isset($_POST['localizar'])) {
+if (isset($_POST['acoes'])) {
     header('location: ../tabTopico.php');
-} else
+}else
 if (isset($_POST['alterar'])) {
     $conn = conexao();
-    $stmt = $conn->prepare("UPDATE Cadastro_usuario set vulnerabilidade = ?, ano = ?, posicao = ? WHERE id_topico = ?;");
+    $stmt = $conn->prepare("UPDATE Cadastro_topico set vulnerabilidade = ?, ano = ?, posicao = ? WHERE id_topico = ?;");
     $stmt->bindParam(1, $vulnerabilidade);
     $stmt->bindparam(2, $ano);
     $stmt->bindParam(3, $posicao);
     $stmt->bindParam(4, $id_topico);
     $stmt->execute();
 
-        modalMessage("Cadastro de Usuarios","Dados cadastrados com sucesso!","../index.php","../usuario.php");     
+    modalMessage("Cadastro de Tópicos", "Dados alterados com sucesso!", "../index.php", "../topico.php");
+} else 
+if (isset($_POST['localizar_vul'])){
+    header('location: ../vulnerabilidades.php');
 }
 
 /* --------------------------- FUNÇÕES ---------------------- */
@@ -46,7 +49,7 @@ if (isset($_POST['alterar'])) {
 function localizarTopicos($param) {
 
     $conn = conexao();
-    $stmt = $conn->prepare("SELECT * FROM Cadastro_topico WHERE vulnerabilidade LIKE '%" . $param . "%' ORDER BY id_topico;");
+    $stmt = $conn->prepare("SELECT * FROM Cadastro_topico WHERE vulnerabilidade LIKE '" . $param . "' ORDER BY id_topico;");
     $stmt->execute();
 
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -88,4 +91,25 @@ function retornaTopicosID($id) {
 
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
+
+function localizarVulnerabilidade() {
+    $conn = conexao();
+    if ($ano != "") {
+        $stmt = $conn->prepare("SELECT * FROM Cadastro_topico WHERE ano= ?");
+        $stmt->bindparam(1, $ano);
+    } else {
+        if ($posicao != "") {
+            $stmt = $conn->prepare("SELECT * FROM Cadastro_topico WHERE posicao= ?");
+            $stmt->bindParam(1, $posicao);
+        } else {
+            if ($vulnerabilidde != "") {
+                $stmt = $conn->prepare("SELECT * FROM Cadastro_topico WHERE vulnerabilidde= ?");
+                $stmt->bindParam(1, $vulnerabilidade);
+            }
+        }
+    }
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
 ?>

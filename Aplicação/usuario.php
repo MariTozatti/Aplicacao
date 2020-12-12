@@ -1,5 +1,5 @@
 <?php
-include_once 'config/header.php';
+include_once ('config/header.php');
 
 include_once ('controller/cusuario.php');
 ?>
@@ -55,7 +55,7 @@ include_once ('controller/cusuario.php');
                     </div>
                     <div class="form-group col-md-1">
                         <label> Código: </label>
-                        <input type="text" name="id_usuario" class="form-control"
+                        <input type="number" name="id_usuario" class="form-control"
                                readonly value="<?php echo $usuario[0]['id_usuario'] ?>" readonly placeholder="Automático" />
                     </div>
                 </div>
@@ -108,9 +108,8 @@ include_once ('controller/cusuario.php');
         </div>
         <div class="row botoes">
             <div class="form-group col-md-12">
-                <input type="submit" name="gravar" value="Gravar" class="btn btn-success">
-                <input type="submit" name="alterar" value="Alterar" class="btn btn-primary">
-                <input type="submit" name="excluir" value="Excluir" class="btn btn-danger">
+                <input type="submit" name="gravar" value="Gravar" class="btn btn-success">              
+                <input type="submit" name="acoes" value="Outras Ações" class="btn btn-primary">
             </div>
         </div>
     </div>

@@ -1,4 +1,14 @@
 <!DOCTYPE html>
+<?php
+//session_start();
+//if ($_SESSION['usuario'] == null){
+//    header('location: login.php');
+//}
+//if ($_REQUEST['sair']){
+//    $_SESSION['login'] = null;
+//    header('location: login.php');
+//}
+?>
 <html lang="en" >
     <head>
         <meta charset="UTF-8">
@@ -58,36 +68,44 @@
                     </span>
                     <span class="hamburger-label">Menu</span>
                 </button>
+                <?php // if (($_SESSION['usuario'] != '') || ($_SESSION['senha'] != '')) { ?>
                 <form id="masthead-search">
                     <input type="search" name="s" aria-labelledby="search-label" placeholder="Pesquisar…" class="draw">
                     <button type="submit">→</button>
                 </form>        
                 <nav id="site-nav" role="navigation">
-                    <div class="col">
+                    <div class="col-md-2">
                         <h4>OWASP</h4>
                         <ul>
                             <li><a href="index.php">O que é?</a></li>
                             <li><a href="https://owasp.org/" target="_blank">Site Oficial</a></li>
                         </ul>            
                     </div>
-                    <div class="col">
+                    <div class="col-md-2">
                         <h4>Vulnerabilidades</h4>
                         <ul>
-                            <li><a href="top10.php">Pesquisa</a></li>
+                            <li><a href="vulnerabilidades.php">Pesquisa</a></li>
                         </ul> 
                     </div>
-                    <div class="col">
+                    <div class="col-md-2">
                         <h4>Cadastro</h4>
                         <ul>
                             <li><a href="usuario.php">Usuários</a></li>
                             <li><a href="topico.php">Vulnerabilidades</a></li>
                         </ul>             
                     </div>
-                    <div class="col">
-                        <a href="login.php"><h4>Login</h4> </a>
-                        <a href="#"><h4>Logout</h4> </a>           
+                    <div class="col-md-2">
+                        <h4>Templates</h4>
+                        <ul>
+                            <li><a href="https://colorlib.com/etc/lf/Login_v1/index.html"target="_blank">Login</a></li>
+                            <li><a href="https://codepen.io/mtorosian/pen/EgbXaZ" target="_blank">Menu</a></li>
+                        </ul>             
                     </div>
-                    <div class="col">
+                    <div class="col-md-2">
+                        <a href="login.php"><h4>Login</h4> </a>
+                        <a href="?sair=1"><h4>Logout</h4> </a>           
+                    </div>
+                    <div class="col-md-2">
                         <ul class="social">
                             <li><a href="https://www.facebook.com/mariana.dealmeida.549" target="_blank"><svg title="Facebook"><use xlink:href="#icon-facebook"></use></svg></a></li>
                             <li><a href=""><svg title="Twitter"><use xlink:href="#icon-twitter"></use></svg></a></li>
@@ -95,6 +113,45 @@
                         </ul>
                     </div>
                 </nav>
+                <?php // } else {?>
+<!--                 <form id="masthead-search">
+                    <input type="search" name="s" aria-labelledby="search-label" placeholder="Pesquisar…" class="draw">
+                    <button type="submit">→</button>
+                </form>        
+                <nav id="site-nav" role="navigation">
+                    <div class="col-md-2">
+                        <h4>OWASP</h4>
+                        <ul>
+                            <li><a href="index.php">O que é?</a></li>
+                            <li><a href="https://owasp.org/" target="_blank">Site Oficial</a></li>
+                        </ul>            
+                    </div>
+                    <div class="col-md-2">
+                        <h4>Vulnerabilidades</h4>
+                        <ul>
+                            <li><a href="vulnerabilidades.php">Pesquisa</a></li>
+                        </ul> 
+                    </div>
+                    <div class="col-md-2">
+                        <h4>Templates</h4>
+                        <ul>
+                            <li><a href="https://colorlib.com/etc/lf/Login_v1/index.html"target="_blank">Login</a></li>
+                            <li><a href="https://codepen.io/mtorosian/pen/EgbXaZ" target="_blank">Menu</a></li>
+                        </ul>             
+                    </div>
+                    <div class="col-md-2">
+                        <a href="login.php"><h4>Login</h4> </a>
+                        <a href="?sair=1"><h4>Logout</h4> </a>           
+                    </div>
+                    <div class="col-md-2">
+                        <ul class="social">
+                            <li><a href="https://www.facebook.com/mariana.dealmeida.549" target="_blank"><svg title="Facebook"><use xlink:href="#icon-facebook"></use></svg></a></li>
+                            <li><a href=""><svg title="Twitter"><use xlink:href="#icon-twitter"></use></svg></a></li>
+                            <li><a href=""><svg title="LinkedIn"><use xlink:href="#icon-linkedin"></use></svg></a></li>
+                        </ul>
+                    </div>
+                </nav>-->
+                <?php // }?>
             </div>
         </header>
     </div>

@@ -41,7 +41,7 @@ include_once ('controller/ctopico.php');
 </style>
 <form action="controller/ctopico.php" method="POST">
     <?php
-    if (isset($_REQUEST['id_topico'])) {
+    if (isset($_REQUEST['id'])) {
         $topico = localizarTopicosID($_REQUEST['id']);
         ?>
         <div class="container">
@@ -50,17 +50,17 @@ include_once ('controller/ctopico.php');
                 <div class="row formularios">
                     <div class="form-group col-md-3">
                         <label > Código: </label>
-                        <input type="text" name="id_topico" class="form-control"
+                        <input type="number" name="id_topico" class="form-control"
                                readonly value="<?php echo $topico[0]['id_topico'] ?>" readonly placeholder="Automático"/>
                     </div>
                     <div class="form-group col-md-3">
                         <label > Ano: </label>
-                        <input type="text" name="ano" class="form-control"
+                        <input type="number" name="ano" class="form-control"
                                readonly value="<?php echo $topico[0]['ano'] ?>" readonly placeholder="Automático"/>
                     </div>
                     <div class="form-group col-md-3">
                         <label > Posição: </label>
-                        <input type="text" name="posicao" class="form-control"
+                        <input type="number" name="posicao" class="form-control"
                                readonly value="<?php echo $topico[0]['posicao'] ?>" readonly placeholder="Automático"/>
                     </div>
                 </div>
@@ -108,9 +108,8 @@ include_once ('controller/ctopico.php');
         </div>
         <div class="row botoes">
             <div class="form-group col-md-12">
-                <input type="submit" name="gravar" value="Gravar" class="btn btn-success">
-                <input type="submit" name="alterar" value="Alterar" class="btn btn-primary">
-                <input type="submit" name="excluir" value="Excluir" class="btn btn-danger">
+                <input type="submit" name="gravar" value="Gravar" class="btn btn-success">              
+                <input type="submit" name="acoes" value="Outras Ações" class="btn btn-primary">
             </div>
         </div>
     </div>

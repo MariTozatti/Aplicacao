@@ -26,7 +26,7 @@ if (isset($_POST['gravar'])) {
 
         modalMessage("Cadastro de usuario","Dados cadastrados com sucesso!","../index.php","../usuario.php");           
 } else
-    if (isset($_POST['excluir']) || isset($_POST['localizar'])) {
+    if (isset($_POST['acoes'])) {
     header('location: ../tabUsuario.php');
 } else
 if (isset($_POST['alterar'])) {
@@ -43,7 +43,7 @@ if (isset($_POST['alterar'])) {
         modalMessage("Cadastro de Usuarios","Dados alterados com sucesso!","../index.php","../usuario.php");     
 } else
 
-if(isset($_POST['login'])){
+if(isset($_POST['usuario'])){
     include_once ('../config/conexao.php');
     session_start();
     
