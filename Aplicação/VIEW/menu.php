@@ -12,37 +12,23 @@
 <html lang="en" >
     <head>
         <meta charset="UTF-8">
-        <meta name="apple-mobile-web-app-title" content="CodePen">
-        <link href="css/style.css" rel="stylesheet" type="text/css"/>
-        
-        <link href="bootstrap-3.4.1-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <link href="css/jquery-ui.theme.min.css" rel="stylesheet" type="text/css"/>
-        <link href="css/jquery-ui.min.css" rel="stylesheet" type="text/css"/>
-        
-        <script src="js/jquery-3.4.0.min.js" type="text/javascript"></script>
-        <script src="bootstrap-3.4.1-dist/js/bootstrap.min.js" type="text/javascript"></script>
-        <script src="js/jquery.mask.min.js" type="text/javascript"></script>
-        <script src="js/jquery-ui.min.js" type="text/javascript"></script>        
-        <script src="js/validator.js" type="text/javascript"></script>
+        <link href="css/style.css" rel="stylesheet" type="text/css"/>       
+        <link href="bootstrap-3.4.1-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/> 
+        <script src="js/jquery.mask.min.js" type="text/javascript"></script>   
         
         <title>Aplicação</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
         <script>
             window.console = window.console || function (t) {};
-        </script>
-        <script>
+
             if (document.location.search.match(/type=embed/gi)) {
                 window.parent.postMessage("resize", "*");
             }
         </script>
         <style>
             body{
-                background-image: linear-gradient(to left, rgba(94,47,55,1), rgba(24,26,65,1));
-                
+                background-image: linear-gradient(to left, rgba(94,47,55,1), rgba(24,26,65,1));      
             }
         </style>
-
-
     </head>
     <body translate="no" class="js">
         <svg xmlns="http://www.w3.org/2000/svg" style="display:none;">
@@ -69,10 +55,7 @@
                     <span class="hamburger-label">Menu</span>
                 </button>
                 <?php // if (($_SESSION['usuario'] != '') || ($_SESSION['senha'] != '')) { ?>
-                <form id="masthead-search">
-                    <input type="search" name="s" aria-labelledby="search-label" placeholder="Pesquisar…" class="draw">
-                    <button type="submit">→</button>
-                </form>        
+                       
                 <nav id="site-nav" role="navigation">
                     <div class="col-md-2">
                         <h4>OWASP</h4>
@@ -90,8 +73,8 @@
                     <div class="col-md-2">
                         <h4>Cadastro</h4>
                         <ul>
-                            <li><a href="usuario.php">Usuários</a></li>
-                            <li><a href="topico.php">Vulnerabilidades</a></li>
+                            <li><a href="usuarioVIEW.php">Usuários</a></li>
+                            <li><a href="topicoVIEW.php">Vulnerabilidades</a></li>
                         </ul>             
                     </div>
                     <div class="col-md-2">
@@ -175,5 +158,4 @@
             });
 //# sourceURL=pen.js
     </script>
-</body>
-</html>
+

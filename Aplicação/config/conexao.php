@@ -10,7 +10,7 @@ try {
 
     function conexao() {
         $conn = new PDO(
-                DBDRIVER . ":host=" . HOSTNAME . ";port=5432;dbname=" . DBNAME . ";user=" . USERNAME . ";password=" . PASSWORD
+                DBDRIVER . ":host=" . HOSTNAME . ";port=3306;dbname=" . DBNAME . ";user=" . USERNAME . ";password=" . PASSWORD
         );
 
         // Tratamento necessário para que apareçam erros de comando SQL

@@ -1,41 +1,10 @@
 <?php
-include_once 'config/header.php';
+include_once 'menu.php';
 ?>
 
-<style>
-    @import url(https://fonts.googleapis.com/css?family=Roboto+Condensed);
-    body{
-        font-family: 'Roboto Condensed';
-    }
-    .caixa{
-    
-    padding-left: 10%;
-    padding-right: 8%;
-    padding-top: 3%;
-    padding-bottom: 4%;
-    margin-top: 5%;
-    border-right: #fff solid 1px;
-    border-top: #fff solid 1px;
-    border-bottom: #fff solid 1px;
-    font: couier, monospace;  
-    font-size: 21px;
-    text-align: justify; 
-    text-indent: 50px; 
-    color: black;   
-    background-color:rgba(255,255,255,.2);
-}
-.caixa2{
-    text-indent: 0px;
-}
-.rodape{
-    padding-top: 1%;
-    font-size:14px;
-    color: #fff;
-}
-.txt{
-    line-height: 1.5;
-}
-</style>
+<head>
+    <link href="css/index.css" rel="stylesheet" type="text/css"/>
+</head>
 <div class="container">
     <div class="caixa caixa2">
         <h1 style="color: #fff">O que é OWASP?</h1>
