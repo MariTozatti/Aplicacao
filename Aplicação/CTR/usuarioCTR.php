@@ -26,7 +26,6 @@ if (isset($_POST['gravar'])) {
         window.location.href='../VIEW/usuarioVIEW.php';</script>");
     endif;
 } else {
-    //caso MedicamentoCTR seja chamada mas não entre em update, apagar, ou cadastrar informar que a rota não foi identificada
     echo ("<script> window.alert('Ação não encontrada')
         window.location.href='../VIEW/usuarioVIEW.php';</script>");
 }

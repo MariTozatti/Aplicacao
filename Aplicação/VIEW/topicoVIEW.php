@@ -62,8 +62,8 @@ if (isset($_GET['alterar'])) {
             </div>
     </form>
     <?php
-    $consulta = 'SELECT id_topico as "ID", vulnerabilidade as "Vulnerabilidade", posicao as "Posicao", ano as "Ano" from Cadastro_topico;';
-    $campos = 'id_topico as "ID", vulnerabilidade as "Vulnerabilidade", posicao as "Posicao", ano as "Ano"';
+    $consulta = 'SELECT id_topico as "id_topico", vulnerabilidade as "Vulnerabilidade", posicao as "Posicao", ano as "Ano" from Cadastro_topico;';
+    $campos = 'id_topico as "id_topico", vulnerabilidade as "Vulnerabilidade", posicao as "Posicao", ano as "Ano"';
     $resultado = consulta_topico($campos);
 
     if (count($resultado) > 0) :
@@ -85,15 +85,15 @@ if (isset($_GET['alterar'])) {
                 <?php
                 foreach ($resultado as $linha) {
                     echo "<tr>";
-                    echo "<td>" . $linha['ID'] . "</td>";
+                    echo "<td>" . $linha['id_topico'] . "</td>";
                     echo "<td>" . $linha['Vulnerabilidade'] . "</td>";
                     echo "<td>" . $linha['Posicao'] . "</td>";
                     echo "<td>" . $linha['Ano'] . "</td>";
                     // Cria um link informando o ID e uma operação apagar através do método GET
                     echo "<td>"
                     . "<a class ='btn btn-primary' href=../VIEW/tabTopicoVIEW.php" .
-                    "?id=" . $linha['ID'] . "> Alterar  </a> "
-                    . "<a class='btn btn-danger' href =../CTR/topicoCTR.php?excluir=" . $linha['ID'] . "> Excluir </a> </td>";
+                    "?id=" . $linha['id_topico'] . "> Alterar  </a> "
+                    . "<a class='btn btn-danger' href =../CTR/topicoCTR.php?excluir=" . $linha['id_topico'] . "> Excluir </a> </td>";
                     echo "</tr>";
                 }
                 ?>

@@ -64,12 +64,12 @@ if (isset($_GET['alterar'])) {
 
     </form>
     <?php
-    $consulta = 'SELECT id_usuario as "ID", nome as "Nome", usuario as "Usuario", senha as "Senha" from Cadastro_usuario;';
-    $campos = 'id_usuario as "ID",nome as "Nome", usuario as "Usuario", senha as "Senha"';
+    $consulta = 'SELECT id_usuario as "id_usuario", nome as "Nome", usuario as "Usuario", senha as "Senha" from Cadastro_usuario;';
+    $campos = 'id_usuario as "id_usuario", nome as "Nome", usuario as "Usuario", senha as "Senha"';
     $resultado = consulta_usuario($campos);
 
-    if (count($resultado) > 0) :
-        $linha = $resultado[0];
+//    if (count($resultado) > 0) :
+//        $linha = $resultado[0];
         ?>
         <table class="table table-hover">
             <thead class=" thead-dark ">
@@ -86,15 +86,15 @@ if (isset($_GET['alterar'])) {
                 <?php
                 foreach ($resultado as $linha) {
                     echo "<tr>";
-                    echo "<td>" . $linha['ID'] . "</td>";
+                    echo "<td>" . $linha['id_usuario'] . "</td>";
                     echo "<td>" . $linha['Nome'] . "</td>";
                     echo "<td>" . $linha['Usuario'] . "</td>";
                     echo "<td>" . $linha['Senha'] . "</td>";
                     // Cria um link informando o ID e uma operação apagar através do método GET
                     echo "<td>"
                     . "<a class ='btn btn-primary' href=../VIEW/tabUsuarioVIEW.php" .
-                    "?id=" . $linha['ID'] . "> Alterar </a> "
-                    . "<a class='btn btn-danger' href =../CTR/usuarioCTR.php?excluir=" . $linha['ID'] . "> Excluir </a> </td>";
+                    "?id=" . $linha['id_usuario'] . "> Alterar </a> "
+                    . "<a class='btn btn-danger' href =../CTR/usuarioCTR.php?excluir=" . $linha['id_usuario'] . "> Excluir </a> </td>";
                     echo "</tr>";
                 }
                 ?>
@@ -103,10 +103,10 @@ if (isset($_GET['alterar'])) {
     </div>
 </div>
 <?php
-else :
-    echo ("<script> window.alert('Nenhum registro encontrado!')
-        window.location.href='../VIEW/usuarioVIEW.php';</script>");
-endif;
+//else :
+//    echo ("<script> window.alert('Nenhum registro encontrado!')
+//        window.location.href='../VIEW/usuarioVIEW.php';</script>");
+//endif;
 ?>
 <div class="rodape">
     <center><p>IFSP - VOTUPORANGA @2020</p></center>

@@ -10,7 +10,7 @@ if (isset($_GET['id_usuario'])) {
 }
 
 // recupera os dados do cadastro
-$condicao = "where id_usuario =  $id_usuaio";
+$condicao = "where id_usuario =  $id_usuario";
 $resultado = consulta_usuario('*', $condicao);
 
 //coloca os dados recebidos em um vetor para preencher o form
@@ -25,8 +25,8 @@ $linha = $resultado[0];
         <div class="caixa caixa2">
             <h1 style="color: #fff">Vulnerabilidades</h1>
             <div class="row">
-                <label for="id_usuario">ID <strong><?php echo $linha["ID"] ?></strong> do registro a ser alterado</label>
-                <input type="hidden" value="<?php echo $linha["ID"] ?>" name="id_usuario">
+                <label for="id_usuario">ID <strong><?php echo $linha["id_usuario"] ?></strong> do registro a ser alterado</label>
+                <input type="hidden" value="<?php echo $linha["id_usuario"] ?>" name="id_usuario">
                 <div class="form-group">
                     <label for="nome">Nome</label>
                     <input type="text" class="form-control" id="nome" name="nome" value="<?php echo $linha["nome"] ?>" aria-describedby="Nome completo">

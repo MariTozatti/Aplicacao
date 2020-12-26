@@ -3,7 +3,7 @@ include_once '../config/conexao.php';
 
 function gravar_usuario(){
     $conexao = conexao();
-    $id_usuario = "";
+    //$id_usuario = "";
     $nome = "";
     $usuario = "";
 
@@ -106,3 +106,31 @@ function consulta_usuario($campos = '*', $add = ''){
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
+
+//if(isset($_POST['login'])){
+//    include_once ('../config/conexao.php');
+//    session_start();
+//    
+//    $usuario = $_POST['usuario'];
+//    $senha = $_POST['senha'];
+//    
+//    $conn = conexao();
+//    
+//    $stmt = $conn->prepare("select * from Cadastro_usuario where usuario = ? and senha = ?");
+//    $stmt->bindparam(1, $usuario); 
+//    $stmt->bindParam(2, $senha);
+//    $stmt->execute();
+//    
+//    $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
+//    
+//    if($res != null){
+//        //gravando valores na sessão aberta
+//        $_SESSION['usuario'] = $res[0]['usuario'];
+//        $_SESSION['senha'] = $res[0]['senha'];
+//        $_SESSION['id_usuario'] = $res[0]['id_usuario'];
+//        
+//        header('location:../VIEW/index.php');
+//    }else{
+//        header('location:../VIEW/login.php');
+//    }
+//}

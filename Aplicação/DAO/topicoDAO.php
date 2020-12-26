@@ -3,7 +3,7 @@ include_once '../config/conexao.php';
 
 function gravar_topico(){
     $conexao = conexao();
-    $id_topico = "";
+    //$id_topico = "";
     $vulnerabilidade = "";
     $posicao = "";
     $ano = "";

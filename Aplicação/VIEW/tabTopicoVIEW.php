@@ -25,8 +25,8 @@ $linha = $resultado[0];
         <div class="caixa caixa2">
             <h1 style="color: #fff">Vulnerabilidades</h1>
             <div class="row">
-                <label for="id_topico">ID <strong><?php echo $linha["ID"] ?></strong> do registro a ser alterado</label>
-                <input type="hidden" value="<?php echo $linha["ID"] ?>" name="id_topico">
+                <label for="id_topico">ID <strong><?php echo $linha["id_topico"] ?></strong> do registro a ser alterado</label>
+                <input type="hidden" value="<?php echo $linha["id_topico"] ?>" name="id_topico">
                 <div class="form-group">
                     <label for="Vulnerabilidade">Vulnerabilidade</label>
                     <input type="text" class="form-control" id="vulnerabilidade" name="vulnerabilidade" value="<?php echo $linha["vulnerabilidade"] ?>" aria-describedby="Inicial do medicamento">
