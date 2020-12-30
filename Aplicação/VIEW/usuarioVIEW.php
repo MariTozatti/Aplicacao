@@ -9,28 +9,10 @@ function consulta($consulta) {
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
-
-if (isset($_GET['alterar'])) {
-
-    $id_usuario = filter_input(INPUT_GET, 'alterar', FILTER_SANITIZE_NUMBER_INT);
-    //abre conexão       
-    if (!empty($id_usuario)) {
-        $conexao = conexao();
-
-        $sql_string = 'UPDATE Cadastro_usuario set nome = ?, usuario = ?, senha = ? WHERE id_usuario = ?;';
-        $SQL = $conexao->prepare($sql_string);
-        $statement->bindParam(1, $nome);
-        $statement->bindParam(2, $usuario);
-        $statement->bindParam(3, $senha);
-        $statement->bindParam(4, $id_usuario);
-        $statement->execute();
-    }
-}
 ?>
 <head>
     <link href="css/cadastros.css" rel="stylesheet" type="text/css"/>
 </head>
-
 <div class="container">
     <form action="../CTR/usuarioCTR.php" method="POST">
         <div class="caixa caixa2">
@@ -39,19 +21,31 @@ if (isset($_GET['alterar'])) {
                 <div class="form-group col-md-4">
                     <label > Usuário: </label>
                     <input type="text" name="usuario" class="form-control"
-                           placeholder="Usuário de Login" />
+                           placeholder="Letras maiúsculas e/ou minúsculas" 
+                           pattern="^(?=.*[A-Z])|(?=.*[a-z])[a-zA-Z]{1,15}$" 
+                           title="Até 15 caracteres" required/>
                 </div>
                 <div class="form-group col-md-4">
                     <label > Senha: </label>
                     <input type="text" name="senha" class="form-control"
-                           placeholder="Senha de Login" />
+                           placeholder="Letra maiúscula, minúscula e números" 
+                           pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])[a-zA-Z0-9]{8,10}$" 
+                           title="De 8 a 10 caracteres" required/>
+                </div>
+                <div class="form-group col-md-4">
+                    <label > Tipo: </label>
+                    <select name="tipo" class="form-control" required >
+                        <option value="ADM">Administrador</option>
+                    </select>
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col-md-12">
                     <label > Nome: </label>
                     <input type="text" name="nome" class="form-control"
-                           placeholder="Nome completo" />
+                           placeholder="Letras maiúsculas e minúsuculas"
+                           pattern="^(?=.*[A-Z])|(?=.*[a-z])[a-zA-Z]{5,30}$" 
+                           title="Até 30 caracteres" required/>
                 </div>
             </div>
 
@@ -64,12 +58,12 @@ if (isset($_GET['alterar'])) {
 
     </form>
     <?php
-    $consulta = 'SELECT id_usuario as "id_usuario", nome as "Nome", usuario as "Usuario", senha as "Senha" from Cadastro_usuario;';
-    $campos = 'id_usuario as "id_usuario", nome as "Nome", usuario as "Usuario", senha as "Senha"';
+    $consulta = 'SELECT id_usuario as "ID", nome as "Nome", usuario as "Usuario", senha as "Senha" from Cadastro_usuario;';
+    $campos = 'id_usuario as "ID", nome as "Nome", usuario as "Usuario", senha as "Senha"';
     $resultado = consulta_usuario($campos);
 
-//    if (count($resultado) > 0) :
-//        $linha = $resultado[0];
+    if (count($resultado) > 0) :
+        $linha = $resultado[0];
         ?>
         <table class="table table-hover">
             <thead class=" thead-dark ">
@@ -86,28 +80,21 @@ if (isset($_GET['alterar'])) {
                 <?php
                 foreach ($resultado as $linha) {
                     echo "<tr>";
-                    echo "<td>" . $linha['id_usuario'] . "</td>";
+                    echo "<td>" . $linha['ID'] . "</td>";
                     echo "<td>" . $linha['Nome'] . "</td>";
                     echo "<td>" . $linha['Usuario'] . "</td>";
                     echo "<td>" . $linha['Senha'] . "</td>";
                     // Cria um link informando o ID e uma operação apagar através do método GET
                     echo "<td>"
-                    . "<a class ='btn btn-primary' href=../VIEW/tabUsuarioVIEW.php" .
-                    "?id=" . $linha['id_usuario'] . "> Alterar </a> "
-                    . "<a class='btn btn-danger' href =../CTR/usuarioCTR.php?excluir=" . $linha['id_usuario'] . "> Excluir </a> </td>";
+                    . "<a class='btn btn-danger' href =../CTR/usuarioCTR.php?excluir=" . $linha['ID'] . "> Excluir </a> </td>";
                     echo "</tr>";
                 }
+                endif;
                 ?>
             </tbody>
         </table>
     </div>
 </div>
-<?php
-//else :
-//    echo ("<script> window.alert('Nenhum registro encontrado!')
-//        window.location.href='../VIEW/usuarioVIEW.php';</script>");
-//endif;
-?>
 <div class="rodape">
     <center><p>IFSP - VOTUPORANGA @2020</p></center>
 </div>

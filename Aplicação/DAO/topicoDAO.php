@@ -21,7 +21,7 @@ function gravar_topico(){
     if (!empty($vulnerabilidade)) {
         try {
             // Cria o script de insert
-            $sql = "INSERT INTO Cadastro_topico (vulnerabilidade, ano, posicao) values (?,?,?);";
+            $sql = "INSERT INTO Cadastro_topico (vulnerabilidade, posicao, ano) values (?,?,?);";
             // Prepara para inserir
             $statement = $conexao->prepare($sql);
             // Informa qual o valor da variável em sequencia
@@ -59,43 +59,6 @@ function excluir_topico(){
             return false;
         }
     }return true;
-}
-//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% NÃO ESTÁ FUNCIONANDO %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function alterar_topico(){
-    //inicia as variáveis com os valores eperados para dados em branco
-    $conexao = conexao();
-    // $id = "";
-    // $inicial = "";
-    // $nome = "";
-    // $quantidade = 0;
-    // $bula = "";
-    // $mg = 0;
-    // $tipo = "";
-    // //faz a sanitização dos dados
-
-    $id_topico = limpar($_POST['id_topico']);
-    $vulnerabilidade = limpar($_POST['vulnerabilidade']);
-    $posicao = limpar($_POST['posicao']);
-    $ano = limpar($_POST['ano']); 
-
-    //verifica se realmente tenho o ID (chave primária) e se o Nome (dado que não pode estar em branco) está preenchido
-    if (!empty($id_topico) && !empty($vulnerabilidade)) {
-         try {
-            $sql = "UPDATE Cadastro_topico set vulnerabilidade = ?, ano = ?, posicao = ? WHERE id_topico = ?;";
-            $statement = $conexao->prepare($sql);
-            $statement->bindParam(1, $vulnerabilidade);
-            $statement->bindParam(2, $posicao);
-            $statement->bindParam(3, $ano);
-            $statement->bindParam(4, $id_topico);
-            $statement->execute();
-            
-        } catch (Exception $exc) {
-            echo $exc->getTraceAsString();
-            return false;
-        }
-    }
-    //se os dados estavam em branco ou se nenhum registro foi atualizado informa que não foi possível fazer o update.
-    return true;
 }
 
 //função padrão para consultar Pessoa, pode receber uma string com os campos (ex: id_pes as Nome) e os valores para o where

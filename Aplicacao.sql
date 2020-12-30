@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Tempo de geração: 15-Dez-2020 às 14:55
+-- Tempo de geração: 30-Dez-2020 às 14:23
 -- Versão do servidor: 8.0.22-0ubuntu0.20.04.3
 -- versão do PHP: 7.4.3
 
@@ -40,8 +40,7 @@ CREATE TABLE `Cadastro_topico` (
 --
 
 INSERT INTO `Cadastro_topico` (`id_topico`, `ano`, `posicao`, `vulnerabilidade`) VALUES
-(1, 2020, 1, 'teste'),
-(2, 2021, 1, 'teste');
+(48, 2020, 1, 'Command Execution ');
 
 -- --------------------------------------------------------
 
@@ -53,8 +52,16 @@ CREATE TABLE `Cadastro_usuario` (
   `id_usuario` int NOT NULL,
   `nome` varchar(30) NOT NULL,
   `usuario` varchar(15) DEFAULT NULL,
-  `senha` varchar(10) DEFAULT NULL
+  `senha` varchar(10) DEFAULT NULL,
+  `tipo` varchar(3) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `Cadastro_usuario`
+--
+
+INSERT INTO `Cadastro_usuario` (`id_usuario`, `nome`, `usuario`, `senha`, `tipo`) VALUES
+(13, 'Mariana', 'mari', 'mari', 'ADM');
 
 --
 -- Índices para tabelas despejadas
@@ -80,13 +87,13 @@ ALTER TABLE `Cadastro_usuario`
 -- AUTO_INCREMENT de tabela `Cadastro_topico`
 --
 ALTER TABLE `Cadastro_topico`
-  MODIFY `id_topico` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id_topico` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT de tabela `Cadastro_usuario`
 --
 ALTER TABLE `Cadastro_usuario`
-  MODIFY `id_usuario` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id_usuario` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

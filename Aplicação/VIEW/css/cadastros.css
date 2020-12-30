@@ -24,10 +24,14 @@
     }
     .rodape{
         padding-top: 1%;
+        padding-bottom: 1%;
         font-size:14px;
         color: #fff;
     }
     .formularios{
         margin-top:2%;
+    }
+    .botao{
+        margin-top:3.6%;
     }
 

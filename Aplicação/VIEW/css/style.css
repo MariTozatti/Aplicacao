@@ -210,6 +210,16 @@ https://www.html5rocks.com/en/tutorials/speed/high-performance-animations/
     transform: rotate(-90deg); 
 }
 
+.controle{
+    color: #fff;
+    padding-left: 81%; 
+    font-size: 15px;
+}
+
+#masthead.is-active .controle{
+    color: #000;
+}
+
 .hamburger-label {
     color: #fff;
     display: inline-block;
@@ -220,7 +230,7 @@ https://www.html5rocks.com/en/tutorials/speed/high-performance-animations/
     text-transform: uppercase;
 }
 
-#masthead.is-active .hamburger-label {
+#masthead.is-active .hamburger-label{
     color: #000;
 }
 

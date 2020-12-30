@@ -1,75 +1,62 @@
 <?php
 include_once 'menu.php';
-include_once('../DAO/topicoDAO.php');
+include_once '../config/conexao.php';
+include_once '../DAO/topicoDAO.php';
+
+function consulta($consulta) {
+    $conn = conexao();
+    $stmt = $conn->prepare($consulta);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
 ?>
 <head>
-    <link href="css/vulne.css" rel="stylesheet" type="text/css"/>
+    <link href="css/cadastros.css" rel="stylesheet" type="text/css"/>
 </head>
-<form action="../model/ctopico.php" method="POST">
-    <div class="container">
+<div class="container">
         <div class="caixa caixa2">
-            <h1 style="color: #fff">Vulnerabilidades</h1>
-            <div class="row formularios">
-                <div class="form-group col-md-10">
-                    <label> Pesquisa: </label>
-                    <input type="text" name="pesquisa" class="form-control"
-                           placeholder="Pesquisa por data, posição ou nome" />
-                </div>
-                <div class="form-group col-md-2 botoes" >
-                    <input type="submit" name="localizar_vul" value="Localizar" class="btn btn-primary">
-                </div>
-            </div>
-            </form>
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Ano</th>
-                        <th scope="col">Posição</th>
-                        <th scope="col">Vulnerabilidade</th>
-                    </tr>
-                </thead>
-                <tbody>
-<!--                    <tr>
-                        <td>1</td>
-                        <td>2020</td>
-                        <td>1°</td>
-                        <td>SQL Injection</td>
-                    </tr>-->
-                    <?php
-        if (isset($_POST['pesquisa'])) {
-            include_once('controller/ctopico.php');
-            $retorno = localizarVulnerabilidade($_POST['pesquisa']);
+        <h1>Vulnerabilidades</h1>
+    <?php
+    $consulta = 'SELECT id_topico as "ID", vulnerabilidade as "Vulnerabilidade", posicao as "Posicao", ano as "Ano" from Cadastro_topico;';
+    $campos = 'id_topico as "ID", vulnerabilidade as "Vulnerabilidade", posicao as "Posicao", ano as "Ano"';
+    $resultado = consulta_topico($campos);
 
-            for ($i = 0; $i < count($retorno); $i++) {
-                echo "<tr>";
-                echo "	<td>";
-                echo "	<span>" . $retorno[$i]['id_topico'] . "</span>";
-                echo "	</td>";
-                echo "<td>";
-                echo "	<span>" . $retorno[$i]['ano'] . "</span>";
-                echo "</td>";
-                echo "<td>";
-                echo "	<span>" . $retorno[$i]['posicao'] . "</span>";
-                echo "</td>";
-                echo "<td>";
-                echo "	<span>" . $retorno[$i]['vulnerabilidade'] . "</span>";
-                echo "</td>";
-                echo "</tr>";
-            }
-        }
+    if (count($resultado) > 0) :
+        $linha = $resultado[0];
         ?>
-                </tbody>
-            </table>
-            <form>
-        <a href='index.php' class='btn btn-primary' style="margin: 10px;">Voltar ao Menu</a>
-    </form>
-        </div>
-    </div>
-    <div class="rodape">
-        <center><p>IFSP - VOTUPORANGA @2020</p></center>
-    </div>
 
+        <table class="table table-hover">
+            <thead class=" thead-dark ">
+                <tr>
+                    <?php
+                    foreach ($linha as $coluna => $valor) {
+                        echo '<th scope = "col">' . $coluna . '</th>';
+                    }
+                    ?>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                foreach ($resultado as $linha) {
+                    echo "<tr>";
+                    echo "<td>" . $linha['ID'] . "</td>";
+                    echo "<td>" . $linha['Vulnerabilidade'] . "</td>";
+                    echo "<td>" . $linha['Posicao'] . "</td>";
+                    echo "<td>" . $linha['Ano'] . "</td>";
+                }
+                ?>
+            </tbody>
+        </table>
+    </div>
+</div>
+<?php
+else :
+    echo ("<script> window.alert('Nenhum registro encontrado')
+        window.location.href='../VIEW/topicoVIEW.php';</script>");
+endif;
+?>
+<div class="rodape">
+    <center><p>IFSP - VOTUPORANGA @2020</p></center>
 </div>
 </body>
 </html>

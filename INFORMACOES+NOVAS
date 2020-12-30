@@ -1,5 +1,3 @@
 Bira, 
-O login está comentado;
-Alterar do usuario e do topico não está funcionando;
-Localizar vulnerabilidade não está funcionando;
-
+O login redireciona o usuario comum para página de login, ele deve redirecionar para a página inicial
+Os campos vulnerabilidade e nome não estão validados

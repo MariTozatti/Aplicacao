@@ -9,25 +9,7 @@ function consulta($consulta) {
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
-
-if (isset($_GET['alterar'])) {
-
-    $id_topico = filter_input(INPUT_GET, 'alterar', FILTER_SANITIZE_NUMBER_INT);
-    //abre conexão       
-    if (!empty($id_topico)) {
-        $conexao = conexao();
-
-        $sql_string = 'UPDATE Cadastro_topico set vulnerabilidade = ?, ano = ?, posicao = ? WHERE id_topico = ?;';
-        $SQL = $conexao->prepare($sql_string);
-        $statement->bindParam(1, $vulnerabilidade);
-        $statement->bindParam(2, $posicao);
-        $statement->bindParam(3, $ano);
-        $statement->bindParam(4, $id_topico);
-        $statement->execute();
-    }
-}
 ?>
-
 <head>
     <link href="css/cadastros.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -39,19 +21,23 @@ if (isset($_GET['alterar'])) {
                 <div class="form-group col-md-3">
                     <label > Ano: </label>
                     <input type="text" name="ano" class="form-control"
-                           placeholder="Ano Referênte" />
+                           placeholder="Ano Referênte" 
+                           pattern="[0-9]{4}" title="Insira 4 caracteres" required/>
                 </div>
                 <div class="form-group col-md-3">
                     <label > Posição: </label>
                     <input type="text" name="posicao" class="form-control"
-                           placeholder="Posição no Hanking" />
+                           placeholder="Posição no Hanking" 
+                           pattern="[0-9]{1,2}" title="De 1 a 2 caracteres" required/>
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col-md-12">
                     <label > Vulnerabilidade: </label>
                     <input type="text" name="vulnerabilidade" class="form-control"
-                           placeholder="Nome da vulnerabilidade" />
+                           placeholder="Nome da vulnerabilidade" 
+                           pattern="^(?=.*[A-Z])|(?=.*[a-z])[a-zA-Z]{5,30}$" 
+                           title="Até 30 caracteres" required/>
                 </div>
             </div>
             <div class="row botoes">
@@ -62,8 +48,8 @@ if (isset($_GET['alterar'])) {
             </div>
     </form>
     <?php
-    $consulta = 'SELECT id_topico as "id_topico", vulnerabilidade as "Vulnerabilidade", posicao as "Posicao", ano as "Ano" from Cadastro_topico;';
-    $campos = 'id_topico as "id_topico", vulnerabilidade as "Vulnerabilidade", posicao as "Posicao", ano as "Ano"';
+    $consulta = 'SELECT id_topico as "ID", vulnerabilidade as "Vulnerabilidade", posicao as "Posicao", ano as "Ano" from Cadastro_topico;';
+    $campos = 'id_topico as "ID", vulnerabilidade as "Vulnerabilidade", posicao as "Posicao", ano as "Ano"';
     $resultado = consulta_topico($campos);
 
     if (count($resultado) > 0) :
@@ -85,28 +71,21 @@ if (isset($_GET['alterar'])) {
                 <?php
                 foreach ($resultado as $linha) {
                     echo "<tr>";
-                    echo "<td>" . $linha['id_topico'] . "</td>";
+                    echo "<td>" . $linha['ID'] . "</td>";
                     echo "<td>" . $linha['Vulnerabilidade'] . "</td>";
                     echo "<td>" . $linha['Posicao'] . "</td>";
                     echo "<td>" . $linha['Ano'] . "</td>";
                     // Cria um link informando o ID e uma operação apagar através do método GET
                     echo "<td>"
-                    . "<a class ='btn btn-primary' href=../VIEW/tabTopicoVIEW.php" .
-                    "?id=" . $linha['id_topico'] . "> Alterar  </a> "
-                    . "<a class='btn btn-danger' href =../CTR/topicoCTR.php?excluir=" . $linha['id_topico'] . "> Excluir </a> </td>";
+                    . "<a class='btn btn-danger' href =../CTR/topicoCTR.php?excluir=" . $linha['ID'] . "> Excluir </a> </td>";
                     echo "</tr>";
                 }
+                endif;
                 ?>
             </tbody>
         </table>
     </div>
 </div>
-<?php
-else :
-    echo ("<script> window.alert('Nenhum registro encontrado')
-        window.location.href='../VIEW/topicoVIEW.php';</script>");
-endif;
-?>
 <div class="rodape">
     <center><p>IFSP - VOTUPORANGA @2020</p></center>
 </div>

@@ -6,6 +6,8 @@ function gravar_usuario(){
     //$id_usuario = "";
     $nome = "";
     $usuario = "";
+    $senha = "";
+    $tipo = "";
 
     if (isset($_POST['nome'])) {
         $nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_STRING);
@@ -16,17 +18,21 @@ function gravar_usuario(){
     if (isset($_POST['senha']) && !empty($_POST['senha'])) {
         $senha = filter_input(INPUT_POST, 'senha', FILTER_SANITIZE_STRING);
     }
+    if (isset($_POST['tipo']) && !empty($_POST['tipo'])) {
+        $tipo = filter_input(INPUT_POST, 'tipo', FILTER_SANITIZE_STRING);
+    }
 
     if (!empty($nome)) {
         try {
             // Cria o script de insert
-            $sql = "INSERT INTO Cadastro_usuario (nome, senha, usuario) values (?,?,?);";
+            $sql = "INSERT INTO Cadastro_usuario (nome, senha, usuario, tipo) values (?,?,?,?);";
             // Prepara para inserir
             $statement = $conexao->prepare($sql);
             // Informa qual o valor da variável em sequencia
             $statement->bindParam(1, $nome);
             $statement->bindParam(2, $usuario);
             $statement->bindParam(3, $senha);
+            $statement->bindParam(4, $tipo);
             $statement->execute();
 
         } catch (Exception $exc) {
@@ -59,44 +65,6 @@ function excluir_usuario(){
         }
     }return true;
 }
-//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% NÃO ESTÁ FUNCIONANDO %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-function alterar_usuario(){
-    //inicia as variáveis com os valores eperados para dados em branco
-    $conexao = conexao();
-    // $id = "";
-    // $inicial = "";
-    // $nome = "";
-    // $quantidade = 0;
-    // $bula = "";
-    // $mg = 0;
-    // $tipo = "";
-    // //faz a sanitização dos dados
-
-    $id_usuario = limpar($_POST['id_usuario']);
-    $nome = limpar($_POST['nome']);
-    $usuario = limpar($_POST['usuario']);
-    $senha = limpar($_POST['senha']); 
-
-    //verifica se realmente tenho o ID (chave primária) e se o Nome (dado que não pode estar em branco) está preenchido
-    if (!empty($id_usuario) && !empty($nome)) {
-         try {
-            $sql = "UPDATE Cadastro_usuario set nome = ?, senha = ?, usuario = ? WHERE id_usuario = ?;";
-            $statement = $conexao->prepare($sql);
-            $statement->bindParam(1, $nome);
-            $statement->bindParam(2, $usuario);
-            $statement->bindParam(3, $senha);
-            $statement->bindParam(4, $id_usuario);
-            $statement->execute();
-            
-        } catch (Exception $exc) {
-            echo $exc->getTraceAsString();
-            return false;
-        }
-    }
-    //se os dados estavam em branco ou se nenhum registro foi atualizado informa que não foi possível fazer o update.
-    return false;
-}
 
 //função padrão para consultar Pessoa, pode receber uma string com os campos (ex: id_pes as Nome) e os valores para o where
 function consulta_usuario($campos = '*', $add = ''){
@@ -107,30 +75,3 @@ function consulta_usuario($campos = '*', $add = ''){
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
-//if(isset($_POST['login'])){
-//    include_once ('../config/conexao.php');
-//    session_start();
-//    
-//    $usuario = $_POST['usuario'];
-//    $senha = $_POST['senha'];
-//    
-//    $conn = conexao();
-//    
-//    $stmt = $conn->prepare("select * from Cadastro_usuario where usuario = ? and senha = ?");
-//    $stmt->bindparam(1, $usuario); 
-//    $stmt->bindParam(2, $senha);
-//    $stmt->execute();
-//    
-//    $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
-//    
-//    if($res != null){
-//        //gravando valores na sessão aberta
-//        $_SESSION['usuario'] = $res[0]['usuario'];
-//        $_SESSION['senha'] = $res[0]['senha'];
-//        $_SESSION['id_usuario'] = $res[0]['id_usuario'];
-//        
-//        header('location:../VIEW/index.php');
-//    }else{
-//        header('location:../VIEW/login.php');
-//    }
-//}
