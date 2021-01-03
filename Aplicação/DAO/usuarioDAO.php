@@ -10,6 +10,7 @@ function gravar_usuario(){
     $tipo = "";
 
     if (isset($_POST['nome'])) {
+        //FILTER_SANITIZE_STRING - Remove todas as tags HTML de uma string
         $nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_STRING);
     }
     if (isset($_POST['usuario']) && !empty($_POST['usuario'])) {

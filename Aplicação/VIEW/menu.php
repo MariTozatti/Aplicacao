@@ -6,7 +6,7 @@ if ($_SESSION['usuario'] == null) {
 }
 if (isset($_REQUEST['sair'])) {
     $_SESSION['usuario'] = null;
-    header('location: index.php');
+    header('location: login.php');
 }
 ?>
 <html lang="en" >

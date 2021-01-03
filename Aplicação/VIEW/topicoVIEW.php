@@ -36,7 +36,7 @@ function consulta($consulta) {
                     <label > Vulnerabilidade: </label>
                     <input type="text" name="vulnerabilidade" class="form-control"
                            placeholder="Nome da vulnerabilidade" 
-                           pattern="^(?=.*[A-Z])|(?=.*[a-z])[a-zA-Z]{5,30}$" 
+                           pattern="^(?=.*[A-Z])|(?=.*[a-z])[a-zA-Z]{1,30}$" 
                            title="Até 30 caracteres" required/>
                 </div>
             </div>

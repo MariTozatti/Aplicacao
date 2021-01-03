@@ -43,7 +43,7 @@ function consulta($consulta) {
                 <div class="form-group col-md-12">
                     <label > Nome: </label>
                     <input type="text" name="nome" class="form-control"
-                           placeholder="Letras maiúsculas e minúsuculas"
+                           placeholder="Nome Completo" 
                            pattern="^(?=.*[A-Z])|(?=.*[a-z])[a-zA-Z]{5,30}$" 
                            title="Até 30 caracteres" required/>
                 </div>

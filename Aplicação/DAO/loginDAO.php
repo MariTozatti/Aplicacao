@@ -25,7 +25,7 @@ if(isset($_POST['usuario'])){
         
         header('location:../VIEW/index.php');
     }else{
-        header('location:../VIEW/index.php');
+        header('location:../VIEW/login.php');
     }
 }
 
