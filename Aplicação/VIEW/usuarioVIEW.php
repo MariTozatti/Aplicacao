@@ -22,15 +22,18 @@ function consulta($consulta) {
                     <label > Usuário: </label>
                     <input type="text" name="usuario" class="form-control"
                            placeholder="Letras maiúsculas e/ou minúsculas" 
-                           pattern="^(?=.*[A-Z])|(?=.*[a-z])[a-zA-Z]{1,15}$" 
-                           title="Até 15 caracteres" required/>
+                           pattern="^(?=.*[A-Z])|(?=.*[a-z])[a-zA-Z]{1,20}$" 
+                           title="Até 20 caracteres" 
+                           onchange="verificar()" 
+                           maxlength="20" required/>
                 </div>
                 <div class="form-group col-md-4">
                     <label > Senha: </label>
                     <input type="text" name="senha" class="form-control"
                            placeholder="Letra maiúscula, minúscula e números" 
-                           pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])[a-zA-Z0-9]{8,10}$" 
-                           title="De 8 a 10 caracteres" required/>
+                           pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])[a-zA-Z0-9]{8,}$" 
+                           title="Insira no mínimo 8 caracteres"  
+                           minlength="8" required/>
                 </div>
                 <div class="form-group col-md-4">
                     <label > Tipo: </label>
@@ -42,10 +45,10 @@ function consulta($consulta) {
             <div class="row">
                 <div class="form-group col-md-12">
                     <label > Nome: </label>
-                    <input type="text" name="nome" class="form-control"
+                    <input type="text" id="entrada" name="nome" class="form-control"
                            placeholder="Nome Completo" 
-                           pattern="^(?=.*[A-Z])|(?=.*[a-z])[a-zA-Z]{5,30}$" 
-                           title="Até 30 caracteres" required/>
+                           onchange="verificar()" 
+                           minlength="1" maxlength="50" required/>
                 </div>
             </div>
 

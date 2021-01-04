@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<?php
+<?php   
 session_start();
 if ($_SESSION['usuario'] == null) {
     header('location: login.php');
@@ -24,7 +24,30 @@ if (isset($_REQUEST['sair'])) {
             if (document.location.search.match(/type=embed/gi)) {
                 window.parent.postMessage("resize", "*");
             }
-        </script>
+
+        function verificar(){
+            var texto=document.getElementById("entrada").value;
+            for (letra of texto){
+                if (!isNaN(texto)){
+                    alert("Digite caracteres válidos");
+                    document.getElementById("entrada").value="";
+                    return;
+                }
+                letraspermitidas="ABCEDFGHIJKLMNOPQRSTUVXWYZ abcdefghijklmnopqrstuvxwyzáàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ"
+                var ok=false;
+                for (letra2 of letraspermitidas ){
+                    if (letra==letra2){
+                        ok=true;
+                    }
+                 }
+                 if (!ok){
+                    alert("Não digite caracteres que não sejam letras ou espaços");
+                    document.getElementById("entrada").value="";
+                    return; 
+                 }
+            }
+        }
+</script>
         <style>
             body{
                 background-image: linear-gradient(to left, rgba(94,47,55,1), rgba(24,26,65,1));      

@@ -35,7 +35,9 @@
                         </span>
 
                         <div class="wrap-input100 validate-input" data-validate = "Insira um usuário">
-                            <input class="input100" type="text" name="usuario" placeholder="Usuário">
+                            <input class="input100" type="text" name="usuario" placeholder="Usuário"
+                            pattern="^(?=.*[A-Z])|(?=.*[a-z])[a-zA-Z]{1,20}$" 
+                            maxlength="20" required/>
                             <span class="focus-input100"></span>
                             <span class="symbol-input100">
                                 <i class="fa fa-user" aria-hidden="true"></i>
@@ -43,7 +45,9 @@
                         </div>
 
                         <div class="wrap-input100 validate-input" data-validate = "Insira uma senha">
-                            <input class="input100" type="password" name="senha" autocomplete="off" placeholder="Senha">
+                            <input class="input100" type="password" name="senha" autocomplete="off" placeholder="Senha"
+                            pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])[a-zA-Z0-9]{8,}$"
+                            maxlength="50" required/>
                             <span class="focus-input100"></span>
                             <span class="symbol-input100">
                                 <i class="fa fa-lock" aria-hidden="true"></i>

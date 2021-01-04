@@ -8,7 +8,7 @@ function gravar_topico(){
     $posicao = "";
     $ano = "";
 
-    if (isset($_POST['vulnerabilidade'])) {
+    if ((trim(strip_tags($_POST['vulnerabilidade'])))) {
         $vulnerabilidade = filter_input(INPUT_POST, 'vulnerabilidade', FILTER_SANITIZE_STRING);
     }
     if (isset($_POST['posicao']) && !empty($_POST['posicao'])) {

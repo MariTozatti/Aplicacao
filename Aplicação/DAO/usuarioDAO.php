@@ -26,7 +26,7 @@ function gravar_usuario(){
     if (!empty($nome)) {
         try {
             // Cria o script de insert
-            $sql = "INSERT INTO Cadastro_usuario (nome, senha, usuario, tipo) values (?,?,?,?);";
+            $sql = "INSERT INTO Cadastro_usuario (nome, usuario, senha, tipo) values (?,?,?,?);";
             // Prepara para inserir
             $statement = $conexao->prepare($sql);
             // Informa qual o valor da variável em sequencia

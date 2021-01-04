@@ -1,5 +1,4 @@
 <?php
-
 if(isset($_POST['usuario'])){
     include_once ('../config/conexao.php');
     session_start();

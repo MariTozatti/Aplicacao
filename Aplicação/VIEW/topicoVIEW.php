@@ -22,22 +22,24 @@ function consulta($consulta) {
                     <label > Ano: </label>
                     <input type="text" name="ano" class="form-control"
                            placeholder="Ano Referênte" 
-                           pattern="[0-9]{4}" title="Insira 4 caracteres" required/>
+                           pattern="[0-9]{4}" title="Insira 4 caracteres" 
+                           maxlength="4" required/>
                 </div>
                 <div class="form-group col-md-3">
                     <label > Posição: </label>
                     <input type="text" name="posicao" class="form-control"
                            placeholder="Posição no Hanking" 
-                           pattern="[0-9]{1,2}" title="De 1 a 2 caracteres" required/>
+                           pattern="[0-9]{1,2}" title="De 1 a 2 caracteres" 
+                           maxlength="2" required/>
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col-md-12">
                     <label > Vulnerabilidade: </label>
-                    <input type="text" name="vulnerabilidade" class="form-control"
-                           placeholder="Nome da vulnerabilidade" 
-                           pattern="^(?=.*[A-Z])|(?=.*[a-z])[a-zA-Z]{1,30}$" 
-                           title="Até 30 caracteres" required/>
+                    <input type="text" id="entrada" name="vulnerabilidade" class="form-control"
+                           placeholder="Nome da vulnerabilidade"  
+                           onchange="verificar()" 
+                           minlength="1" maxlength="30" required/>
                 </div>
             </div>
             <div class="row botoes">
