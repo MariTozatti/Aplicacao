@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Tempo de geração: 30-Dez-2020 às 14:23
+-- Tempo de geração: 05-Jan-2021 às 18:15
 -- Versão do servidor: 8.0.22-0ubuntu0.20.04.3
 -- versão do PHP: 7.4.3
 
@@ -40,7 +40,10 @@ CREATE TABLE `Cadastro_topico` (
 --
 
 INSERT INTO `Cadastro_topico` (`id_topico`, `ano`, `posicao`, `vulnerabilidade`) VALUES
-(48, 2020, 1, 'Command Execution ');
+(48, 2020, 1, 'Command Execution '),
+(52, 2020, 1, 'whoami'),
+(55, 2020, 1, 'SQL Injection'),
+(57, 2020, 1, 'SQL Injection');
 
 -- --------------------------------------------------------
 
@@ -50,9 +53,9 @@ INSERT INTO `Cadastro_topico` (`id_topico`, `ano`, `posicao`, `vulnerabilidade`)
 
 CREATE TABLE `Cadastro_usuario` (
   `id_usuario` int NOT NULL,
-  `nome` varchar(30) NOT NULL,
-  `usuario` varchar(15) DEFAULT NULL,
-  `senha` varchar(10) DEFAULT NULL,
+  `nome` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `usuario` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `senha` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `tipo` varchar(3) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -61,7 +64,9 @@ CREATE TABLE `Cadastro_usuario` (
 --
 
 INSERT INTO `Cadastro_usuario` (`id_usuario`, `nome`, `usuario`, `senha`, `tipo`) VALUES
-(13, 'Mariana', 'mari', 'mari', 'ADM');
+(24, 'Mariana', 'Mariana', 'Mariana21', 'ADM'),
+(29, 'Mariana de Almeida Rodrigues', 'Mariana', 'Maritoza01', 'ADM'),
+(30, 'Mariana de Almeida Rodrigues', 'Mariana', 'Maritoza01', 'ADM');
 
 --
 -- Índices para tabelas despejadas
@@ -87,13 +92,13 @@ ALTER TABLE `Cadastro_usuario`
 -- AUTO_INCREMENT de tabela `Cadastro_topico`
 --
 ALTER TABLE `Cadastro_topico`
-  MODIFY `id_topico` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id_topico` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- AUTO_INCREMENT de tabela `Cadastro_usuario`
 --
 ALTER TABLE `Cadastro_usuario`
-  MODIFY `id_usuario` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_usuario` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

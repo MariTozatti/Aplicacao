@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<?php   
+<?php
 session_start();
 if ($_SESSION['usuario'] == null) {
     header('location: login.php');
@@ -16,38 +16,15 @@ if (isset($_REQUEST['sair'])) {
         <link href="bootstrap-3.4.1-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/> 
         <link rel="stylesheet" type="text/css" href="login/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
         <script src="js/jquery.mask.min.js" type="text/javascript"></script>   
-
-        <title>Aplicação</title>
+        <script src="js/script.js" type="text/javascript"></script>
         <script>
             window.console = window.console || function (t) {};
 
             if (document.location.search.match(/type=embed/gi)) {
                 window.parent.postMessage("resize", "*");
             }
-
-        function verificar(){
-            var texto=document.getElementById("entrada").value;
-            for (letra of texto){
-                if (!isNaN(texto)){
-                    alert("Digite caracteres válidos");
-                    document.getElementById("entrada").value="";
-                    return;
-                }
-                letraspermitidas="ABCEDFGHIJKLMNOPQRSTUVXWYZ abcdefghijklmnopqrstuvxwyzáàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ"
-                var ok=false;
-                for (letra2 of letraspermitidas ){
-                    if (letra==letra2){
-                        ok=true;
-                    }
-                 }
-                 if (!ok){
-                    alert("Não digite caracteres que não sejam letras ou espaços");
-                    document.getElementById("entrada").value="";
-                    return; 
-                 }
-            }
-        }
-</script>
+        </script>
+        <title>Aplicação</title>
         <style>
             body{
                 background-image: linear-gradient(to left, rgba(94,47,55,1), rgba(24,26,65,1));      

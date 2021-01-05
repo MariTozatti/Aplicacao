@@ -6,13 +6,13 @@ function gravar_usuario(){
     //$id_usuario = "";
     $nome = "";
     $usuario = "";
-    $senha = "";
+    md5($senha = "");
     $tipo = "";
 
     if (isset($_POST['nome'])) {
-        //FILTER_SANITIZE_STRING - Remove todas as tags HTML de uma string
         $nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_STRING);
     }
+    //FILTER_SANITIZE_STRING - Remove todas as tags HTML de uma string
     if (isset($_POST['usuario']) && !empty($_POST['usuario'])) {
         $usuario = filter_input(INPUT_POST, 'usuario', FILTER_SANITIZE_STRING);
     }
