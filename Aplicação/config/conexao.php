@@ -2,8 +2,10 @@
 
 const DBDRIVER = "mysql";
 const HOSTNAME = "localhost";
-const USERNAME = "mari";
-const PASSWORD = "mari123";
+// const USERNAME = "mari";
+// const PASSWORD = "mari123";
+const USERNAME = "root";
+const PASSWORD = "1234";
 const DBNAME = "Aplicacao";
 
 try {

@@ -4,7 +4,7 @@ if(isset($_POST['usuario'])){
     session_start();
     
     $usuario = $_POST['usuario'];
-    $senha = $_POST['senha'];
+    $senha = md5($_POST['senha']);
     
     $conn = conexao();
     

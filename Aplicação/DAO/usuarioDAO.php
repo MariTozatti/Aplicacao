@@ -6,7 +6,7 @@ function gravar_usuario(){
     //$id_usuario = "";
     $nome = "";
     $usuario = "";
-    md5($senha = "");
+    $senha = "";
     $tipo = "";
 
     if (isset($_POST['nome'])) {
@@ -17,7 +17,7 @@ function gravar_usuario(){
         $usuario = filter_input(INPUT_POST, 'usuario', FILTER_SANITIZE_STRING);
     }
     if (isset($_POST['senha']) && !empty($_POST['senha'])) {
-        $senha = filter_input(INPUT_POST, 'senha', FILTER_SANITIZE_STRING);
+        $senha = md5(filter_input(INPUT_POST, 'senha', FILTER_SANITIZE_STRING));
     }
     if (isset($_POST['tipo']) && !empty($_POST['tipo'])) {
         $tipo = filter_input(INPUT_POST, 'tipo', FILTER_SANITIZE_STRING);
