@@ -55,7 +55,6 @@ if (isset($_REQUEST['sair'])) {
                     </span>
                     <span class="hamburger-label">Menu</span>
                 </button>  
-                <?php if ($_SESSION['tipo'] == 'ADM') { ?>
                     <h2 class="fa fa-user controle"> ADM</h2>
                     <nav id="site-nav" role="navigation">
                         <div class="col-md-2">
@@ -90,41 +89,6 @@ if (isset($_REQUEST['sair'])) {
                             <a><h4>Login</h4> </a>
                             <a href="?sair=1"><h4>Logout</h4> </a>           
                         </div>
-                    <?php } else { ?>
-                        <h2 class="fa fa-user-times controle"> Leitor</h2>
-                        <nav id="site-nav" role="navigation">
-                            <div class="col-md-2">
-                                <h4>OWASP</h4>
-                                <ul>
-                                    <li><a href="index.php">O que é?</a></li>
-                                    <li><a href="https://owasp.org/" target="_blank">Site Oficial</a></li>
-                                </ul>            
-                            </div>
-                            <div class="col-md-2">
-                                <h4>Vulnerabilidades</h4>
-                                <ul>
-                                    <li><a href="vulnerabilidades.php">Pesquisa</a></li>
-                                </ul> 
-                            </div>
-                            <div class="col-md-2">
-                                <h4>Cadastro</h4>
-                                <ul>
-                                    <li>Bloqueado! </li>
-                                    <li>Faça Login</li>
-                                </ul>             
-                            </div>
-                            <div class="col-md-2">
-                                <h4>Templates</h4>
-                                <ul>
-                                    <li><a href="https://colorlib.com/etc/lf/Login_v1/index.html"target="_blank">Login</a></li>
-                                    <li><a href="https://codepen.io/mtorosian/pen/EgbXaZ" target="_blank">Menu</a></li>
-                                </ul>             
-                            </div>
-                            <div class="col-md-2">
-                                <a href="login.php"><h4>Login</h4> </a>
-                                <a href="?sair=1"><h4>Logout</h4> </a>           
-                            </div>
-                        <?php } ?>
                         <div class="col-md-2">
                             <ul class="social">
                                 <li><a href="https://www.facebook.com/mariana.dealmeida.549" target="_blank"><svg title="Facebook"><use xlink:href="#icon-facebook"></use></svg></a></li>
