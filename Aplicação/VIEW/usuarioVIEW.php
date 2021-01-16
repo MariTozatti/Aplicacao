@@ -13,6 +13,17 @@ function consulta($consulta) {
 <head>
     <link href="css/cadastros.css" rel="stylesheet" type="text/css"/>
 </head>
+<!--
+++++++++++++++++++++++++ INFORMAÇÕES ++++++++++++++++++++++++++
+pattern - define o que pode ser posto no campo, ex: 
+pattern="[0-9]{4}" - aceita apenas números, no máximo 4 caracteres.
+ATENÇÃO - pattern não aceita espaços!!!
+maxlenght - caracter máximo que pode ser colocado no campo.
+minlenght - caracter mínimo que pode ser colocado no campo.
+required - torna o campo obrigátorio.
+onchange="verificar" - função JavaScript para validar os campos.
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+-->
 <div class="container">
     <form action="../CTR/usuarioCTR.php" method="POST">
         <div class="caixa caixa2">
@@ -35,12 +46,6 @@ function consulta($consulta) {
                            title="Insira no mínimo 8 caracteres"  
                            minlength="8" required/>
                 </div>
-                <div class="form-group col-md-4">
-                    <label > Tipo: </label>
-                    <select name="tipo" class="form-control" required >
-                        <option value="ADM">Administrador</option>
-                    </select>
-                </div>
             </div>
             <div class="row">
                 <div class="form-group col-md-12">
@@ -61,8 +66,8 @@ function consulta($consulta) {
 
     </form>
     <?php
-    $consulta = 'SELECT id_usuario as "ID", nome as "Nome", usuario as "Usuario", senha as "Senha" from Cadastro_usuario;';
-    $campos = 'id_usuario as "ID", nome as "Nome", usuario as "Usuario", senha as "Senha"';
+    $consulta = 'SELECT id_usuario as "ID", nome as "Nome", usuario as "Usuario" from Cadastro_usuario;';
+    $campos = 'id_usuario as "ID", nome as "Nome", usuario as "Usuario"';
     $resultado = consulta_usuario($campos);
 
     if (count($resultado) > 0) :
@@ -86,7 +91,6 @@ function consulta($consulta) {
                     echo "<td>" . $linha['ID'] . "</td>";
                     echo "<td>" . $linha['Nome'] . "</td>";
                     echo "<td>" . $linha['Usuario'] . "</td>";
-                    echo "<td>" . $linha['Senha'] . "</td>";
                     // Cria um link informando o ID e uma operação apagar através do método GET
                     echo "<td>"
                     . "<a class='btn btn-danger' href =../CTR/usuarioCTR.php?excluir=" . $linha['ID'] . "> Excluir </a> </td>";
@@ -99,7 +103,7 @@ function consulta($consulta) {
     </div>
 </div>
 <div class="rodape">
-    <center><p>IFSP - VOTUPORANGA @2020</p></center>
+    <center><p>IFSP - VOTUPORANGA @2021</p></center>
 </div>
 </body>
 </html>

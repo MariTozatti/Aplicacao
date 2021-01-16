@@ -13,6 +13,17 @@ function consulta($consulta) {
 <head>
     <link href="css/cadastros.css" rel="stylesheet" type="text/css"/>
 </head>
+<!--
+++++++++++++++++++++++++ INFORMAÇÕES ++++++++++++++++++++++++++
+pattern - define o que pode ser posto no campo, ex: 
+pattern="[0-9]{4}" - aceita apenas números, no máximo 4 caracteres.
+ATENÇÃO - pattern não aceita espaços!!!
+maxlenght - caracter máximo que pode ser colocado no campo.
+minlenght - caracter mínimo que pode ser colocado no campo.
+required - torna o campo obrigátorio.
+onchange="verificar" - função JavaScript para validar os campos.
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+-->
 <div class="container">
     <form action="../CTR/topicoCTR.php" method="POST">
         <div class="caixa caixa2">
@@ -89,7 +100,7 @@ function consulta($consulta) {
     </div>
 </div>
 <div class="rodape">
-    <center><p>IFSP - VOTUPORANGA @2020</p></center>
+    <center><p>IFSP - VOTUPORANGA @2021</p></center>
 </div>
 </body>
 </html>

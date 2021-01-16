@@ -18,7 +18,7 @@ include_once 'menu.php';
     </div>
 </div>
 <div class="rodape">
-    <center><p>IFSP - VOTUPORANGA @2020</p></center>
+    <center><p>IFSP - VOTUPORANGA @2021</p></center>
 </div>
 </div>
 </body>

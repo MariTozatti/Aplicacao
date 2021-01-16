@@ -22,6 +22,12 @@
         <!--===============================================================================================-->
     </head>
     <body>
+
+    <!-- ####################################################-->
+    <!-- O login usado é um template pronto!
+         No menu tem o link do template do menu e do login
+         na parte Templates!!!-->
+    <!-- ####################################################-->
         <div class="limiter">
             <div class="container-login100">
                 <div class="wrap-login100">
@@ -36,8 +42,8 @@
 
                         <div class="wrap-input100 validate-input" data-validate = "Insira um usuário">
                             <input class="input100" type="text" name="usuario" placeholder="Usuário"
-                            pattern="^(?=.*[A-Z])|(?=.*[a-z])[a-zA-Z]{1,20}$" 
-                            maxlength="20" required/>
+                                   pattern="^(?=.*[A-Z])|(?=.*[a-z])[a-zA-Z]{1,20}$" 
+                                   maxlength="20" required/>
                             <span class="focus-input100"></span>
                             <span class="symbol-input100">
                                 <i class="fa fa-user" aria-hidden="true"></i>
@@ -46,30 +52,22 @@
 
                         <div class="wrap-input100 validate-input" data-validate = "Insira uma senha">
                             <input class="input100" type="password" name="senha" autocomplete="off" placeholder="Senha"
-                            pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])[a-zA-Z0-9]{8,}$"
-                            maxlength="50" required/>
+                                   pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])[a-zA-Z0-9]{8,}$"
+                                   maxlength="50" required/>
                             <span class="focus-input100"></span>
                             <span class="symbol-input100">
                                 <i class="fa fa-lock" aria-hidden="true"></i>
                             </span>
-                        </div>
-                        
+                        </div>   
                         <div class="container-login100-form-btn">
                             <button type="submit" name="login" value="Login" class="login100-form-btn">
                                 Login
                             </button>
                         </div>
-<!--                        <div class='leitor'>                     
-                        Não é um Administrador?<br>
-                        Entrar como <a href= index.php> Leitor</a>!
-                        
-                        </div>-->
                     </form>
                 </div>
             </div>
         </div>
-
-
 
         <!--===============================================================================================-->	
         <script src="login/vendor/jquery/jquery-3.2.1.min.js"></script>
@@ -87,6 +85,5 @@
         </script>
         <!--===============================================================================================-->
         <script src="login/js/main.js"></script>
-
     </body>
 </html>

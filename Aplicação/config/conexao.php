@@ -1,11 +1,14 @@
 <?php
 
+//tipo de gerenciador do banco
 const DBDRIVER = "mysql";
+//nome do host gerenciador do banco
 const HOSTNAME = "localhost";
-// const USERNAME = "mari";
-// const PASSWORD = "mari123";
-const USERNAME = "root";
-const PASSWORD = "1234";
+//nome do usuário do banco
+const USERNAME = "";
+//senha do banco
+const PASSWORD = "";
+//nome do banco da aplicação/sistema
 const DBNAME = "Aplicacao";
 
 try {

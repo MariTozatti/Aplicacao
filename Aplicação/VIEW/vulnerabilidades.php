@@ -56,7 +56,7 @@ else :
 endif;
 ?>
 <div class="rodape">
-    <center><p>IFSP - VOTUPORANGA @2020</p></center>
+    <center><p>IFSP - VOTUPORANGA @2021</p></center>
 </div>
 </body>
 </html>

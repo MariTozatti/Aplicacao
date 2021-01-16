@@ -2,11 +2,13 @@
 include_once '../config/conexao.php';
 include_once '../DAO/topicoDAO.php';
 
+//CTR - é o que liga as funções (DAO) e a tela (VIEW)
+
 if (isset($_POST['gravar'])) {
-    if (gravar_topico()) :
+    if (gravar_topico()) : //chama a função do DAO
         echo ("<script> window.alert('Vulnerabilidade Cadastrada com Sucesso')
         window.location.href='../VIEW/topicoVIEW.php';</script>");
-
+        // mostra a mensagem para o usuário
     else : echo ("<script> window.alert('Erro ao Cadastrar Vulnerabilidade')
         window.location.href='../VIEW/topicoVIEW.php';</script>");
     endif;

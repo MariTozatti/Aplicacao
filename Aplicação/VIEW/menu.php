@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <?php
-
+//inicia a sessão
 session_start();
-
+//se o usuario estiver vazio, ir para o login.php
 if ($_SESSION['usuario'] == null) {
     header('location: login.php');
 }
+//se o usuário clicar em sair, ir para o login.php
 if (isset($_REQUEST['sair'])) {
     $_SESSION['usuario'] = null;
     header('location: login.php');
 }
-
 ?>
 <html lang="en">
 
@@ -60,8 +60,9 @@ if (isset($_REQUEST['sair'])) {
                     </span>
                     <span class="hamburger-label">Menu</span>
                 </button>
-                <h2 class="fa fa-user controle"> <?php echo $_SESSION['usuario'];
-                                                    ?></h2>
+                <!-- Nome do usuário logado -->
+                <!-- A classe fa fa- tem diversos ícones, mudar confome necessário -->
+                <h2 class="fa fa-user controle"> <?php echo $_SESSION['usuario']; ?></h2>
                 <nav id="site-nav" role="navigation">
                     <div class="col-md-2">
                         <h4>OWASP</h4>
@@ -85,7 +86,7 @@ if (isset($_REQUEST['sair'])) {
                         </ul>
                     </div>
                     <div class="col-md-2">
-                        <h4>Templates</h4>
+                        <h4>Templates</h4> <!-- Templates usados, modificar conforme o necessário-->
                         <ul>
                             <li><a href="https://colorlib.com/etc/lf/Login_v1/index.html" target="_blank">Login</a></li>
                             <li><a href="https://codepen.io/mtorosian/pen/EgbXaZ" target="_blank">Menu</a></li>
